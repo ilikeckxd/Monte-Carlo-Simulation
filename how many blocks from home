@@ -1,0 +1,21 @@
+import random
+
+
+def random_walk(n):
+    '''回傳走了n次後的座標'''
+    counts = dict()
+    for i in range(n):
+        r = random.randint(1, 5)  # 1~4 分別代表上下左右
+        counts[r] = counts.get(r, 0) + 1  # counts[r]的default設為0
+    x = counts.get(1, 0) - counts.get(2, 0)
+    y = counts.get(3, 0) - counts.get(4, 0)
+    return x, y
+
+
+for i in range(25):
+    walk = random_walk(10)
+    print(walk, "Distance from home = ",
+          abs(walk[0]) + abs(walk[1]))
+          
+          
+https://www.youtube.com/watch?v=BfS2H1y6tzQ
